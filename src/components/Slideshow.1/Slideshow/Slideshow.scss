@@ -1,0 +1,40 @@
+.slideshow {
+  width: 100%;
+  position: relative;
+  &__prev,
+  &__next {
+    position: absolute;
+    top: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    transform: translateY(-50%);
+  }
+  &__prev {
+    left: 4px;
+  }
+  &__next {
+    right: 4px;
+  }
+  &__nav {
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__dot {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: rgba(128, 128, 128, 0.2);
+    cursor: pointer;
+
+    &_active {
+      background-color: rgba(128, 128, 128, 0.8);
+    }
+  }
+
+  &__dot + &__dot {
+    margin-left: 8px;
+  }
+}
