@@ -1,0 +1,19 @@
+.accordeon {
+  background-color: grey;
+  padding: 15px;
+  position: relative;
+  user-select: none;
+  cursor: pointer;
+  &:after {
+    position: absolute;
+    transform: translateY(-50%);
+    right: 10px;
+    top: 50%;
+    content: "\02795";
+    font-size: 13px;
+    color: #777;
+  }
+  &--active:after {
+    content: "\02796";
+  }
+}
