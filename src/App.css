@@ -4,15 +4,25 @@
   margin: 0 auto;
 }
 
+.card {
+  margin-bottom: 16px;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 16px;
+}
+
 .accordeon__content {
   padding: 16px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.link {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+}
+
+.link:hover {
+  background-color: #ddd;
+  cursor: pointer;
 }
