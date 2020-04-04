@@ -1,0 +1,42 @@
+.sideNav {
+  &__btn {
+    appearance: none;
+    border: none;
+    background-color: black;
+    color: white;
+  }
+
+  &__nav {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow-x: hidden;
+    background-color: black;
+    transition: width 0.5s;
+    z-index: 2;
+    &\--visible {
+      width: 250px;
+    }
+  }
+
+  &__container-pushed {
+    margin-left: 250px !important;
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background-color: black;
+    z-index: 1;
+    display: none;
+    &\--visible {
+      display: block;
+    }
+  }
+}

@@ -4,6 +4,7 @@
   position: relative;
   user-select: none;
   cursor: pointer;
+  text-align: center;
   &:after {
     position: absolute;
     transform: translateY(-50%);

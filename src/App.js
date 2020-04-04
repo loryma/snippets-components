@@ -2,6 +2,7 @@ import React from "react";
 import Slideshow, { Slide } from "./components/Slideshow.1";
 import Accordeon from "./components/Accordion.3";
 import Dropdown from "./components/Dropdown.4";
+import SideNav from "./components/SideNavigation.5";
 import "./App.css";
 
 function App() {
@@ -27,21 +28,81 @@ function App() {
         </Accordeon>
       </div>
       <div className="card">
-        <Dropdown title="Hover" open="onMouseOver" close="onMouseLeave">
-          <a className="link">Link 1</a>
-          <a className="link">Link 2</a>
-          <a className="link">Link 2</a>
-        </Dropdown>
+        <div className="card__row">
+          <Dropdown title="Hover" open="onMouseOver" close="onMouseLeave">
+            <a className="link">Link 1</a>
+            <a className="link">Link 2</a>
+            <a className="link">Link 2</a>
+          </Dropdown>
+        </div>
+        <div className="card__row">
+          <Dropdown
+            title="Click"
+            open="onClick"
+            btnStyle={{ backgroundColor: "#3498DB" }}
+          >
+            <a className="link">Link 1</a>
+            <a className="link">Link 2</a>
+            <a className="link">Link 2</a>
+          </Dropdown>
+        </div>
+      </div>
 
-        <Dropdown
-          title="Click"
-          open="onClick"
-          btnStyle={{ backgroundColor: "#3498DB" }}
-        >
-          <a className="link">Link 1</a>
-          <a className="link">Link 2</a>
-          <a className="link">Link 2</a>
-        </Dropdown>
+      <div className="card">
+        <div className="card__row">
+          <SideNav title="side nav" btnClass="sidenavBtn">
+            {(onClose) => (
+              <div className="sidenav">
+                <span className="closebtn" onClick={onClose}>
+                  &times;
+                </span>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+              </div>
+            )}
+          </SideNav>
+        </div>
+        <div className="card__row">
+          <SideNav
+            title="side nav push"
+            btnClass="sidenavBtn"
+            pushSelector={"#root"}
+          >
+            {(onClose) => (
+              <div className="sidenav">
+                <span className="closebtn" onClick={onClose}>
+                  &times;
+                </span>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+              </div>
+            )}
+          </SideNav>
+        </div>
+        <div className="card__row">
+          <SideNav
+            title="side nav push overlay"
+            btnClass="sidenavBtn"
+            pushSelector={"#root"}
+            overlay
+          >
+            {(onClose) => (
+              <div className="sidenav">
+                <span className="closebtn" onClick={onClose}>
+                  &times;
+                </span>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Clients</a>
+                <a href="#">Contact</a>
+              </div>
+            )}
+          </SideNav>
+        </div>
       </div>
     </div>
   );

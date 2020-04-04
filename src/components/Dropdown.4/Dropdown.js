@@ -5,10 +5,10 @@ function Dropdown({
   children,
   title,
   open,
-  close = "noClose",
+  close = "noclose",
   onClickOutside,
   containerStyle = {},
-  btnStyle = {}
+  btnStyle = {},
 }) {
   const [show, setShow] = useState(false);
   const dropdownRef = useRef();
