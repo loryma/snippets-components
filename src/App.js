@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Slideshow, { Slide } from "./components/Slideshow.1";
 import Accordeon from "./components/Accordion.3";
 import Dropdown from "./components/Dropdown.4";
 import SideNav from "./components/SideNavigation.5";
+import Modal from "./components/Modal.7";
 import "./App.css";
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div className="App">
       <div className="card">
@@ -103,6 +106,34 @@ function App() {
             )}
           </SideNav>
         </div>
+      </div>
+      <div className="card">
+        <button
+          className="modalBtn"
+          onClick={() => setIsModalOpen(true)}
+          type="button"
+        >
+          Open Modal
+        </button>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          modalClassName="modal-content"
+        >
+          <div class="modal-header">
+            <span onClick={() => setIsModalOpen(false)} class="close">
+              &times;
+            </span>
+            <h2>Modal Header</h2>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the Modal Body</p>
+            <p>Some other text...</p>
+          </div>
+          <div class="modal-footer">
+            <h3>Modal Footer</h3>
+          </div>
+        </Modal>
       </div>
     </div>
   );
