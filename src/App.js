@@ -135,6 +135,20 @@ function App() {
           </div>
         </Modal>
       </div>
+
+      <div className="card">
+        <img className="modalBtnImg" onClick={() => setIsModalOpen(true)} />
+        <Modal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          modalClassName="modal-content"
+        >
+          <span class="close">&times;</span>
+
+          <img className="modal-img" />
+          <div id="caption"></div>
+        </Modal>
+      </div>
     </div>
   );
 }
