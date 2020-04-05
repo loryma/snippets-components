@@ -4,11 +4,16 @@ import Accordeon from "./components/Accordion.3";
 import Dropdown from "./components/Dropdown.4";
 import SideNav from "./components/SideNavigation.5";
 import Modal from "./components/Modal.7";
+import img_2 from "./imgs/img_2.jpg";
+
 import "./App.css";
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const closeModal = () => setIsModalOpen(false);
+
+  const [isImgModalOpen, setIsImgModalOpen] = useState(false);
+  const closeImgModal = () => setIsImgModalOpen(false);
   return (
     <div className="App">
       <div className="card">
@@ -137,16 +142,23 @@ function App() {
       </div>
 
       <div className="card">
-        <img className="modalBtnImg" onClick={() => setIsModalOpen(true)} />
+        <img
+          className="imgModal__btn"
+          src={img_2}
+          onClick={() => setIsImgModalOpen(true)}
+        />
         <Modal
-          isOpen={isModalOpen}
-          onClose={closeModal}
-          modalClassName="modal-content"
+          isOpen={isImgModalOpen}
+          onClose={closeImgModal}
+          modalClassName="imgModal__content"
+          overlayClassName="imgModal__overlay"
         >
-          <span class="close">&times;</span>
+          <span onClick={closeImgModal} className="imgModal__close">
+            &times;
+          </span>
 
-          <img className="modal-img" />
-          <div id="caption"></div>
+          <img className="imgModal__img" src={img_2} />
+          <div className="imgModal__caption">Snow</div>
         </Modal>
       </div>
     </div>
