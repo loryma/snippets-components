@@ -5,6 +5,8 @@ import Dropdown from "./components/Dropdown.4";
 import SideNav from "./components/SideNavigation.5";
 import Modal from "./components/Modal.7";
 import img_2 from "./imgs/img_2.jpg";
+import img_5 from "./imgs/img_5.jpg";
+import img_6 from "./imgs/img_6.jpg";
 
 import "./App.css";
 
@@ -126,7 +128,7 @@ function App() {
           modalClassName="modal-content"
         >
           <div class="modal-header">
-            <span onClick={() => setIsModalOpen(false)} class="close">
+            <span onClick={() => setIsModalOpen(false)} className="close">
               &times;
             </span>
             <h2>Modal Header</h2>
@@ -160,6 +162,16 @@ function App() {
           <img className="imgModal__img" src={img_2} />
           <div className="imgModal__caption">Snow</div>
         </Modal>
+      </div>
+      <div className="card">
+        <Slideshow gallery>
+          <Slide caption={"Caption 1"} />
+          <Slide caption={"Caption 2"} />
+          <Slide caption={"Caption 3"} />
+          <Slide caption={"Caption 4"} />
+          <Slide caption={"Caption 5"} />
+          <Slide caption={"Caption 6"} />
+        </Slideshow>
       </div>
     </div>
   );

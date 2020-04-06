@@ -2,7 +2,9 @@ import React from "react";
 import "./Slide.scss";
 
 function Slide({ url, caption, index, count, activeIndex }) {
-  const imgUrl = require(`./img_${index + 1}.jpg`);
+  const imgUrl = url
+    ? require(`${url}`)
+    : require(`../imgs/img_${index + 1}.jpg`);
   const active = activeIndex === index;
 
   return (

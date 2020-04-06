@@ -1,0 +1,15 @@
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr));
+
+  &__item {
+    display: block;
+    width: 100%;
+    filter: brightness(0.5);
+    cursor: pointer;
+
+    &--active {
+      filter: brightness(1);
+    }
+  }
+}

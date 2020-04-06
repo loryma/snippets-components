@@ -1,13 +1,27 @@
 import React, { useState } from "react";
+import GalleryItem from "../GalleryItem/";
 import "./Slideshow.scss";
 
-function Slideshow({ arrowPrev, arrowNext, children, style = {} }) {
+function Slideshow({ arrowPrev, arrowNext, children, style = {}, gallery }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  let galleryImgs;
 
   const count = React.Children.count(children);
   const childrenWithProps = React.Children.map(children, (child, index) =>
     React.cloneElement(child, { index, count, activeIndex })
   );
+
+  if (gallery) {
+    galleryImgs = React.Children.toArray(children).map((child, index) => (
+      <GalleryItem
+        active={index === activeIndex}
+        key={child.url}
+        url={child.url}
+        index={index}
+        onClick={setActiveIndex.bind(undefined, index)}
+      />
+    ));
+  }
 
   const dots = [...Array(count)].map((_, i) => (
     <div
@@ -19,7 +33,7 @@ function Slideshow({ arrowPrev, arrowNext, children, style = {} }) {
     ></div>
   ));
 
-  const changeActive = n => {
+  const changeActive = (n) => {
     let newActive = activeIndex + 1;
     if (newActive < 0) {
       newActive = count - 1;
@@ -41,6 +55,9 @@ function Slideshow({ arrowPrev, arrowNext, children, style = {} }) {
         </div>
       </div>
       <nav className="slideshow__nav">{dots}</nav>
+      {gallery ? (
+        <div className="slideshow__gallery gallery">{galleryImgs}</div>
+      ) : null}
     </div>
   );
 }
